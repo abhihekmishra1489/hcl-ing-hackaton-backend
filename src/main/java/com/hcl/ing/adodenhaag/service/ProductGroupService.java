@@ -1,7 +1,11 @@
 package com.hcl.ing.adodenhaag.service;
 
+import java.util.List;
+
+import com.hcl.ing.adodenhaag.controller.response.ProductGroupResponse;
+
 public interface ProductGroupService {
 
-    public String getProductGroup(String productGroupId) ;
+	public List<ProductGroupResponse> getProductGroup();
 
 }
