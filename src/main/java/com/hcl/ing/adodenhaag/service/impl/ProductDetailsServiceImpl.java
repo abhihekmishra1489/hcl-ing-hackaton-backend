@@ -3,13 +3,19 @@ package com.hcl.ing.adodenhaag.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hcl.ing.adodenhaag.controller.response.ProductDetailsResponse;
+import com.hcl.ing.adodenhaag.entity.CustomerProductDetails;
+import com.hcl.ing.adodenhaag.repository.CustomerProductRepository;
 import com.hcl.ing.adodenhaag.service.ProductDetailsService;
 
 @Component
 public class ProductDetailsServiceImpl implements ProductDetailsService {
+
+	@Autowired
+	private CustomerProductRepository customerProductRepository;
 
 	@Override
 	public Map<String, String> getProductDetails(String productId) {
@@ -26,6 +32,12 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
 		mapOfProductDetails.put("Balance", "200euro");
 		mapOfProductDetails.put("Phone Number", "064550987");
 		return mapOfProductDetails;
+	}
+
+	@Override
+	public CustomerProductDetails getCustomerDetails(Long customerId) {
+		CustomerProductDetails customerProductDetails = customerProductRepository.findById(customerId).orElseThrow();
+		return customerProductDetails;
 	}
 
 }
