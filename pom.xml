@@ -115,7 +115,7 @@
 				    <manifest>
 				      <addClasspath>true</addClasspath>
 				      <classpathPrefix>lib/</classpathPrefix>
-				      <mainClass>com.mycompany.app.App</mainClass>
+				      <mainClass>com.hcl.ing.adodenhaag.AdodenhaagBackendApplication</mainClass>
 				    </manifest>
 				  </archive>
 				</configuration>
