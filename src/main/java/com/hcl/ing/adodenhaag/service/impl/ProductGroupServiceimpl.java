@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hcl.ing.adodenhaag.controller.response.ProductGroupResponse;
+import com.hcl.ing.adodenhaag.entity.ProductGroup;
+import com.hcl.ing.adodenhaag.repository.ProductGroupRepository;
 import com.hcl.ing.adodenhaag.service.ProductGroupService;
 
 @Component
 public class ProductGroupServiceimpl implements ProductGroupService {
+
+	@Autowired
+	private ProductGroupRepository productGroupRepository;
 
 	@Override
 	public List<ProductGroupResponse> getProductGroup() {
@@ -34,6 +40,11 @@ public class ProductGroupServiceimpl implements ProductGroupService {
 		responses.add(productGroupResponse3);
 
 		return responses;
+	}
+
+	@Override
+	public List<ProductGroup> getProductGroupDetails() {
+		return productGroupRepository.findAll();
 	}
 
 }
