@@ -1,7 +1,9 @@
 package com.hcl.ing.adodenhaag.service;
 
+import java.util.Map;
+
 public interface ProductDetailsService {
 
-    public String getProductDetails(String productId) ;
+    public Map<String, String> getProductDetails(String productId) ;
 
 }

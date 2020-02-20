@@ -12,19 +12,20 @@ import com.hcl.ing.adodenhaag.service.ProductDetailsService;
 public class ProductDetailsServiceImpl implements ProductDetailsService {
 
 	@Override
-	public String getProductDetails(String productId) {
+	public Map<String, String> getProductDetails(String productId) {
 
 		ProductDetailsResponse productDetailResponse = new ProductDetailsResponse();
 		productDetailResponse.setId(123L);
 		productDetailResponse.setProductName("Orange Saving Account");
 
 		Map<String, String> mapOfProductDetails = new HashMap<String, String>();
-		mapOfProductDetails.put("Name", "User-1");
-		mapOfProductDetails.put("Name", "User-1");
-		mapOfProductDetails.put("Name", "User-1");
-		mapOfProductDetails.put("Name", "User-1");
-		mapOfProductDetails.put("Name", "User-1");
-		return "productDetails";
+		mapOfProductDetails.put("ROI", "0.5%");
+		mapOfProductDetails.put("Name", "Robert");
+		mapOfProductDetails.put("DOB", "22-09-1992");
+		mapOfProductDetails.put("Address", "Grubbehoeve");
+		mapOfProductDetails.put("Balance", "200euro");
+		mapOfProductDetails.put("Phone Number", "064550987");
+		return mapOfProductDetails;
 	}
 
 }
