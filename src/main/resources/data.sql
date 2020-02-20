@@ -16,3 +16,7 @@ insert into product_details (product_details_id,product_name,product_group_id) V
 insert into product_details (product_details_id,product_name,product_group_id) VALUES (12,'Bonus interest account',1);
 insert into product_details (product_details_id,product_name,product_group_id) VALUES (13,'Savings deposit',1);
 insert into product_details (product_details_id,product_name,product_group_id) VALUES (14,'Green savings deposit',1);
+
+
+insert into customer_product_details(customer_id,account_balance,age,customer_name) VALUES (1,'20000',40,'Ram');
+insert into customer_product_details(customer_id,account_balance,age,customer_name) VALUES (2,'300000',60,'Shiva');
