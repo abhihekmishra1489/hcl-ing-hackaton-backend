@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: adodenhaag-backend
+
+# ENDPOINTS WEB CONFIGURATION
+management.endpoints.web.exposure.include: '*'
+# HEALTH ENDPOINT
+management.endpoint.health.show-details: always
+# INFO ENDPOINT CONFIGURATION
