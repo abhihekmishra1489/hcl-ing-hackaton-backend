@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh 'java -jar target/adodenhaag-backend-0.0.1-SNAPSHOT.jar > outputbe.txt &'
             }
         }
     }
