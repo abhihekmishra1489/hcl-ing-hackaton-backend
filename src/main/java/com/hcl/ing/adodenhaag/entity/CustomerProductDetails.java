@@ -8,21 +8,21 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 @Table(name = "customer_product_details")
 public class CustomerProductDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long customerId;
 
     private String customerName;
 
-    private String age;
+    private int age;
 
     private String accountBalance;
 
-    @OneToMany(mappedBy = "customer_product_details")
+    @OneToMany(cascade=CascadeType.PERSIST)
     private Set<ProductDetails> productDetailsSet;
 }

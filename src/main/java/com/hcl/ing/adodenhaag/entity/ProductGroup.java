@@ -8,18 +8,18 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 @Table(name = "product_group")
 public class ProductGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long productGroupId;
 
     private String productGroupName;
 
-    @OneToMany(mappedBy = "product_group")
+    @OneToMany(mappedBy = "productGroup")
     private Set<ProductDetails> productDetailsSet;
 
 

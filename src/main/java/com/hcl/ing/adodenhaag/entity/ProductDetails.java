@@ -7,17 +7,19 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder
 @Table(name = "product_details")
 public class ProductDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long productDetailsId;
 
-    private Long productGroupID;
+    @ManyToOne
+    @JoinColumn(name="product_group_id", nullable=false)
+    private ProductGroup productGroup;
 
     private String productName;
 
