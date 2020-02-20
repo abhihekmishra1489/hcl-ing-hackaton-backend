@@ -23,8 +23,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'mvn spring-boot:run & exit 0'
-                sh 'echo delivered'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
