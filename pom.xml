@@ -108,6 +108,13 @@
 				<mainClass>com.hcl.ing.adodenhaag.AdodenhaagBackendApplication</mainClass>
 				<addResources>true</addResources>
 			    </configuration>
+				<executions>
+				    <execution>
+					<goals>
+					    <goal>repackage</goal>
+					</goals>
+				    </execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
