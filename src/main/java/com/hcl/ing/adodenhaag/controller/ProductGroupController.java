@@ -22,7 +22,6 @@ public class ProductGroupController {
 
 	@GetMapping
 	public List<ProductGroupResponse> getProductGroupDetails() {
-		LOGGER.info("This is logger");
 		return productGroupService.getProductGroup();
 
 	}
