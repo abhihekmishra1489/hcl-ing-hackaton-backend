@@ -13,7 +13,7 @@ public class ProductGroupController {
 
 	@GetMapping
 	public String getProductGroupDetails() {
-		LOGGER.info("This is logger");
+
 		return "Gettting product group details";
 	}
 }

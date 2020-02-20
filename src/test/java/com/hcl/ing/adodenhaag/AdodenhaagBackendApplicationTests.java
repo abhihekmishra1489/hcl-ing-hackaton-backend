@@ -6,7 +6,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class AdodenhaagBackendApplicationTests {
 
-	/*
-	 * @Test void contextLoads() { }
-	 */
+	  @Test void contextLoads() { }
 }
