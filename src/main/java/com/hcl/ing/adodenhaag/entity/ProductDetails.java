@@ -2,6 +2,8 @@ package com.hcl.ing.adodenhaag.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Getter
@@ -17,8 +19,9 @@ public class ProductDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productDetailsId;
 
-    @ManyToOne
-    @JoinColumn(name="product_group_id", nullable=false)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name="product_group_id", nullable=false)
     private ProductGroup productGroup;
 
     private String productName;

@@ -13,14 +13,14 @@ import java.util.Set;
 //@Builder
 @Table(name = "product_group")
 public class ProductGroup {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productGroupId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long productGroupId;
 
-    private String productGroupName;
+	private String productGroupName;
 
-    @OneToMany(mappedBy = "productGroup")
-    private Set<ProductDetails> productDetailsSet;
-
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="product_group_id")
+	private Set<ProductDetails> productDetailsSet;
 
 }
