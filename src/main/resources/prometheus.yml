@@ -19,10 +19,10 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ['35.180.189.176:9090']
+      - targets: ['34.244.26.211:9090']
 
   - job_name: 'spring-actuator'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['35.180.189.176:8081']
+      - targets: ['34.244.26.211:8080']
