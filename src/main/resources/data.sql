@@ -20,3 +20,11 @@ insert into product_details (product_details_id,product_name,product_group_id) V
 
 insert into customer_product_details(customer_id,account_balance,age,customer_name) VALUES (1,'20000',40,'Ram');
 insert into customer_product_details(customer_id,account_balance,age,customer_name) VALUES (2,'300000',60,'Shiva');
+
+insert into user(id,user_email,pwd,role,user_id) VALUES (1,'TestUser@gmail.com','user123','user','U123');
+insert into user(id,user_email,pwd,role,user_id) VALUES (2,'AbhiUser@gmail.com','abhipwd','user','Uabhi');
+insert into user(id,user_email,pwd,role,user_id) VALUES (3,'AshuUser@gmail.com','ashupwd','user','Uashu');
+insert into user(id,user_email,pwd,role,user_id) VALUES (4,'CammyCustomer@gmail.com','cammypwd','customer','Ccammy');
+insert into user(id,user_email,pwd,role,user_id) VALUES (5,'RamaCustomer@gmail.com','ramapwd','customer','Crama');
+insert into user(id,user_email,pwd,role,user_id) VALUES (6,'RakeshCustomer@gmail.com','rakeshpwd','customer','Crakesh');
+insert into user(id,user_email,pwd,role,user_id) VALUES (7,'TestCustomer@gmail.com','customer12345','customer','C12345');

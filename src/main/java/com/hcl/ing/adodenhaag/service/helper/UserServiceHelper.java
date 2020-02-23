@@ -21,10 +21,10 @@ public class UserServiceHelper {
     }
 
     public Predicate<User> getUserPredicate(User loginUser) {
-        return user -> user.getUserEmail().equalsIgnoreCase(loginUser.getUserEmail());
+        return user -> user.getUserEmail().equalsIgnoreCase(loginUser.getUserEmail()) && user.getPwd().equalsIgnoreCase(loginUser.getPwd());
     }
 
     public Supplier<UserNotFoundException> getUserNotFoundExceptionSupplier(User loginUser) {
-        return () -> new UserNotFoundException("No User found with email :" + loginUser.getUserEmail());
+        return () -> new UserNotFoundException("No User found :");
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class LoginController {
 
@@ -24,6 +26,5 @@ public class LoginController {
     public ResponseEntity<LoginResponse> authorizeLogin(@RequestBody User user) {
         LoginResponse loginResponse = userService.validateLogin(user);
         return new ResponseEntity<>(loginResponse, HttpStatus.OK);
-
     }
 }

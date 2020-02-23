@@ -18,7 +18,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException userNotFoundException, WebRequest request) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
-        body.put("message", "No User found, user email is not correct ");
+        body.put("message", "No User found or UserId or password is not correct");
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 }
