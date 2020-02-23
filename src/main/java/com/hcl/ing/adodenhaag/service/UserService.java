@@ -2,30 +2,26 @@ package com.hcl.ing.adodenhaag.service;
 
 import com.hcl.ing.adodenhaag.model.LoginResponse;
 import com.hcl.ing.adodenhaag.model.User;
-import com.hcl.ing.adodenhaag.repository.UserRepository;
 import com.hcl.ing.adodenhaag.service.helper.UserServiceHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
-
 
 @Service
+@Slf4j
 public class UserService {
 
     private UserServiceHelper userServiceHelper;
-    private UserRepository userRepository;
 
     @Autowired
-    public UserService(UserServiceHelper userServiceHelper, UserRepository userRepository) {
+    public UserService(UserServiceHelper userServiceHelper) {
         this.userServiceHelper = userServiceHelper;
-        this.userRepository = userRepository;
     }
 
     public LoginResponse validateLogin(User loginUser) {
         LoginResponse loginResponse = getLoginResponse();
-        return getUserDetails()
+        return userServiceHelper.getUserDetails()
                 .stream()
                 .filter(userServiceHelper.getUserPredicate(loginUser))
                 .map(userServiceHelper.getUserLoginResponseFunction(loginResponse))
@@ -37,7 +33,5 @@ public class UserService {
         return new LoginResponse();
     }
 
-    public List<User> getUserDetails() {
-        return Collections.unmodifiableList(userRepository.findAll());
-    }
+
 }
