@@ -5,6 +5,9 @@ import com.hcl.ing.adodenhaag.model.LoginResponse;
 import com.hcl.ing.adodenhaag.model.User;
 import org.springframework.stereotype.Service;
 
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 @Service
 public class UserService {
 
@@ -14,14 +17,22 @@ public class UserService {
 
         return user1.getUsers()
                 .stream()
-                .filter(user -> user.getUserEmail().equalsIgnoreCase(loginUser.getUserEmail()))
-                .map(user -> {
-                    loginResponse.setRole(user.getRole());
-                    loginResponse.setUserId(user.getUserId());
-                    return loginResponse;
-                })
+                .filter(getUserPredicate(loginUser))
+                .map(getUserLoginResponseFunction(loginResponse))
                 .findFirst()
                 .orElseThrow(() -> new UserNotFoundException("No User found with email :" + loginUser.getUserEmail()));
+    }
+
+    private Function<User, LoginResponse> getUserLoginResponseFunction(LoginResponse loginResponse) {
+        return user -> {
+            loginResponse.setRole(user.getRole());
+            loginResponse.setUserId(user.getUserId());
+            return loginResponse;
+        };
+    }
+
+    private Predicate<User> getUserPredicate(User loginUser) {
+        return user -> user.getUserEmail().equalsIgnoreCase(loginUser.getUserEmail());
     }
 
 }
