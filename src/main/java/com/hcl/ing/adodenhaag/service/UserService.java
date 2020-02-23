@@ -1,38 +1,31 @@
 package com.hcl.ing.adodenhaag.service;
 
-import com.hcl.ing.adodenhaag.exception.UserNotFoundException;
 import com.hcl.ing.adodenhaag.model.LoginResponse;
 import com.hcl.ing.adodenhaag.model.User;
+import com.hcl.ing.adodenhaag.service.helper.UserServiceHelper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 @Service
 public class UserService {
 
+    private UserServiceHelper userServiceHelper;
+
+    @Autowired
+    public UserService(UserServiceHelper userServiceHelper) {
+        this.userServiceHelper = userServiceHelper;
+    }
+
     public LoginResponse validateLogin(User loginUser) {
         LoginResponse loginResponse = new LoginResponse();
-        User user1 = new User();
+        User userInstance = new User();
 
-        return user1.getUsers()
+        return userInstance.getUsers()
                 .stream()
-                .filter(getUserPredicate(loginUser))
-                .map(getUserLoginResponseFunction(loginResponse))
+                .filter(userServiceHelper.getUserPredicate(loginUser))
+                .map(userServiceHelper.getUserLoginResponseFunction(loginResponse))
                 .findFirst()
-                .orElseThrow(() -> new UserNotFoundException("No User found with email :" + loginUser.getUserEmail()));
+                .orElseThrow(userServiceHelper.getUserNotFoundExceptionSupplier(loginUser));
     }
-
-    private Function<User, LoginResponse> getUserLoginResponseFunction(LoginResponse loginResponse) {
-        return user -> {
-            loginResponse.setRole(user.getRole());
-            loginResponse.setUserId(user.getUserId());
-            return loginResponse;
-        };
-    }
-
-    private Predicate<User> getUserPredicate(User loginUser) {
-        return user -> user.getUserEmail().equalsIgnoreCase(loginUser.getUserEmail());
-    }
-
 }
