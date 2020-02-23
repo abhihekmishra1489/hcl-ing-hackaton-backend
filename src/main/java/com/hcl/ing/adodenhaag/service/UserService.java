@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-
     public LoginResponse validateLogin(User loginUser) {
         LoginResponse loginResponse = new LoginResponse();
         User user1 = new User();
@@ -23,16 +22,6 @@ public class UserService {
                 })
                 .findFirst()
                 .orElseThrow(() -> new UserNotFoundException("No User found with email :" + loginUser.getUserEmail()));
-
-
-
-       /* for (User userList : users) {
-            if (userList.getUserEmail().equalsIgnoreCase(loginUser.getUserEmail())) {
-                loginResponse.setRole(userList.getRole());
-                loginResponse.setUserId(userList.getUserId());
-            }
-        }
-        return loginResponse;*/
     }
 
 }
